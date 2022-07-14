@@ -2,6 +2,8 @@ package lv.javaguru.main.balance;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,5 +40,11 @@ class BalanceServiceTest {
         balanceService.add(userName, amountToAdd);
         double moneyFromBalance = balanceService.getBalance(userName);
         assertEquals(expectedAmount, moneyFromBalance);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = { "racecar", "reder", "able was I ere I saw elba" })
+    void palindromes(String candidate) {
+        assertTrue(candidate.contains("a"));
     }
 }
